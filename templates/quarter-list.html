@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="ibox">
+        <div class="ibox-head">
+            <div class="ibox-title">Quarter Table</div>
+        </div>
+        <div class="ibox-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>quarter_number</th>
+                            <th>first_command_id</th>
+                            <th>second_command_id</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in quarter %}
+                        <tr>
+                            <td>{{i.quarter_number}}</td>
+                            <td>{{i.first_command_id}}</td>
+                            <td>{{i.second_command_id}}</td>
+                            <td>
+                                <a href="{% url 'edit_quarter' i.id%}" class="btn btn-default btn-xs m-r-5" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil font-14"></i></a>
+                                <a href="{% url 'delete_quarter' i.id%}" class="btn btn-default btn-xs"  data-original-title="Delete"><i class="fa fa-trash font-14"></i></a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

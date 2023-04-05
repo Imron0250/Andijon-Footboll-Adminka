@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="ibox">
+        <div class="ibox-head">
+            <div class="ibox-title">News Table</div>
+        </div>
+        <div class="ibox-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>title</th>
+                            <th>text</th>
+                            <th>date</th>
+                            <th>is_banner</th>
+                            <th>photo</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in news %}
+                        <tr>
+                            <td>{{i.title}}</td>
+                            <td>{{i.text}}</td>
+                            <td>{{i.date}}</td>
+                            <td>{{i.is_banner}}</td>
+                            <td class="d-none d-md-table-cell"><img src="{{ i.photo.url }}" alt="logo"></td>
+                            <td>
+                                <a href="{% url 'edit_news' i.id%}" class="btn btn-default btn-xs m-r-5" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil font-14"></i></a>
+                                <a href="{% url 'delete_news' i.id%}" class="btn btn-default btn-xs"  data-original-title="Delete"><i class="fa fa-trash font-14"></i></a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="ibox">
+        <div class="ibox-head">
+            <div class="ibox-title">Shop Table</div>
+        </div>
+        <div class="ibox-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>product</th>
+                            <th>img_file</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in shop %}
+                        <tr>
+                            <td>{{i.product}}</td>
+                            <td class="d-none d-md-table-cell"><img src="{{ i.img_file.url }}" alt="logo"></td>
+                            <td>
+                                <a href="{% url 'edit_shop' i.id%}" class="btn btn-default btn-xs m-r-5" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil font-14"></i></a>
+                                <a href="{% url 'shop_delete' i.id%}" class="btn btn-default btn-xs"  data-original-title="Delete"><i class="fa fa-trash font-14"></i></a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

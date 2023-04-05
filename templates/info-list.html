@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="ibox">
+        <div class="ibox-head">
+            <div class="ibox-title">Info Table</div>
+        </div>
+        <div class="ibox-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Logo</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in info %}
+                        <tr>
+                            <td>{{i.description}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.phone}}</td>
+                            <td class="d-none d-md-table-cell"><img src="{{ i.logo.url }}" alt="logo"></td>
+                            <td>
+                                <a href="{% url 'edit_info' i.id%}" class="btn btn-default btn-xs m-r-5" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil font-14"></i></a>
+                                <a href="{% url 'info_delete' i.id%}" class="btn btn-default btn-xs"  data-original-title="Delete"><i class="fa fa-trash font-14"></i></a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

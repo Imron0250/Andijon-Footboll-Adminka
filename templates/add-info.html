@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content-wrapper">
+    <div class="page-heading">
+        <h1 class="page-title">Info Qoshish</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html"><i class="la la-home font-20"></i></a>
+            </li>
+        </ol>
+    </div>
+    <div class="page-content fade-in-up">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="ibox">
+                    
+                    <div class="ibox-body">
+                        <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <label>description </label>
+                                    <input class="form-control" type="text" name="description" placeholder="Product">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <label>email </label>
+                                    <input class="form-control" type="text" name="email" placeholder="Product">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <label>phone </label>
+                                    <input class="form-control" type="text" name="phone" placeholder="Product">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label w-100">logo</label>
+                                <input type="file" name="logo">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content-wrapper">
+    <div class="page-heading">
+        <h1 class="page-title">Edit Players</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html"><i class="la la-home font-20"></i></a>
+            </li>
+        </ol>
+    </div>
+    <div class="page-content fade-in-up">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="ibox">
+                    
+                    <div class="ibox-body">
+                        <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <label>First name</label>
+                                    <input class="form-control" type="text" name="first_name" placeholder="First name">
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label>Second name</label>
+                                    <input class="form-control" type="text" name="second_name" placeholder="Second name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Number</label>
+                                <input class="form-control" type="text" name="number" placeholder="Number">
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <input class="form-control" type="text" name="role" placeholder="Role">
+                            </div>
+                            <div class="form-group">
+                                <label>Game_played</label>
+                                <input class="form-control" type="text" name="games_played" placeholder="Game played">
+                            </div>
+                            <div class="form-group">
+                                <label>minuts_played</label>
+                                <input class="form-control" type="text" name="minuts_played" placeholder="minuts_played">
+                            </div>
+                            <div class="form-group">
+                                <label>Start</label>
+                                <input class="form-control" type="text" name="start" placeholder="Start">
+                            </div>
+                            <div class="form-group">
+                                <label>sub_off</label>
+                                <input class="form-control" type="text" name="sub_off" placeholder="sub_off">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label w-100">Add photo</label>
+                                <input type="file" name="photo">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
